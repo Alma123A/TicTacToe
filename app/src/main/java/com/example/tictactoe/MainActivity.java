@@ -15,7 +15,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+        private void onNewGame() {
+            board = new String[3][3];
+            for (int row=0; row < 3; row++)
+                for (int col=0; col < 3; col++)
+                    board[row][col] = new String();
+
+            turn = "X";
+            count = 0;
+        }
 
     public void onButtonClick(View view) {
+
     }
 }
