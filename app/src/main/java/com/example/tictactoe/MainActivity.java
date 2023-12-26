@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
+    String turn;
+    String[][] board;
+    int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
