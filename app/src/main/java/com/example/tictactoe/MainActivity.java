@@ -25,46 +25,29 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onStart() {
-            // Call the superclass method first.
             super.onStart();
-
         }
-
         @Override
         protected void onResume() {
-            // users returns to the activity
             super.onResume();
-
         }
-
         @Override
         protected void onPause() {
-            // pause the activity and it is no longer available.
             super.onPause();
-
         }
-
         @Override
         protected void onRestart() {
-            // restarts the activity.
             super.onRestart();
-
         }
-
         @Override
         protected void onStop() {
-            // the activity is no longer visible.
+
             super.onStop();
-
         }
-
         @Override
         protected void onDestroy() {
-            // the activity is finishing or being destroyed by the system.
             super.onDestroy();
-
         }
-
         private boolean isWinner() {
             for (int i = 0; i < 3; i++) {
                 if (board[i][0].equals(board[i][1]) && board[i][1].equals(board[i][2]) && !board[i][0].equals("")) {
