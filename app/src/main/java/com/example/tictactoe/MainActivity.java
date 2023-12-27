@@ -12,10 +12,12 @@ public class MainActivity extends AppCompatActivity {
     int count;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
     private void handleClick(int row, int col, int id) {
         if (board[row][col].equals("")) {
             board[row][col] = turn;
@@ -26,7 +28,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onTurnEnd() {
+        // בדיקה האם יש מנצח - חשוב לבצע לפני הבדיקה אם הלוח מלא
+        if (isWinner())
+            endGame(turn + " won!");
+        else {
+            count++;
+            // בדיקת מצב לוח מלא (תיקו)
+            if (count == 9)
+                endGame("Tie");
+            else {
+                // העברת התור
+                turn = (turn.equals("X") ? "O" : "X");
+            }
+        }
     }
+
+    private boolean isWinner() {
+    }
+
+
+    private void endGame (String st)
+    {
+
+}
 
 
     public void onButtonClick(View view) {
