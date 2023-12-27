@@ -1,9 +1,9 @@
 package com.example.tictactoe;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.View;
 import android.view.View;
 import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
@@ -18,13 +18,36 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    private void handleClick(int row, int col, int id) {
-        if (board[row][col].equals("")) {
-            board[row][col] = turn;
-            Button btn = findViewById(id);
-            btn.setText(turn);
-            onTurnEnd();
+    private boolean isWinner() {
+    }
+
+
+    private void endGame (String st) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("We have a winner!");
+        String msg = "The winner is: " + st;
+        if (st.equals("Tie")) {
+            builder.setTitle("We got a tie");
+            msg = "The result is : " + st;
         }
+
+        builder.setMessage(msg);
+        builder.setPositiveButton("EXIT", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+// Exit handling
+                onDestroy();
+
+            }
+        });
+        builder.setNegativeButton("Restart", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+// Cancel handling
+
+            }
+        });
+        AlertDialog dialog = builder.show();
     }
 
     private void onTurnEnd() {
@@ -42,16 +65,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-    private boolean isWinner() {
+            private void handleClick(int row, int col, int id) {
+                if (board[row][col].equals("")) {
+                    board[row][col] = turn;
+                    Button btn = findViewById(id);
+                    btn.setText(turn);
+                    onTurnEnd();
+        }
     }
-
-
-    private void endGame (String st)
-    {
-
-}
-
 
     public void onButtonClick(View view) {
         int id = view.getId();
