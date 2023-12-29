@@ -71,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
 
         private void endGame(String st) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("We have a winner!");
+            builder.setTitle("winnerrr!");
             String msg = "The winner is: " + st;
             if (st.equals("Tie")) {
-                builder.setTitle("We got a tie");
+                builder.setTitle("We haveS a tie");
                 msg = "The result is : " + st;
             }
 
